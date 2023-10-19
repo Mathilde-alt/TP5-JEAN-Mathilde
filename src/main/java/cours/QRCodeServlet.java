@@ -22,12 +22,6 @@ public class QRCodeServlet extends HttpServlet {
         String lib = request.getParameter("libelle");
         String phrase = "Le code du formulaire est"   + code +". Le libellé est " + lib +".";
 
-        // Vérif que le code-barres contient exactement 12 chiffres
-        if (code == null || code.length() != 12 || !code.matches("[0-9]+")) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Le code-barres doit contenir exactement 12 chiffres.");
-            return;
-        }
-
         // Création de l'objet
         DataMatrixBean bean = new DataMatrixBean();
 
